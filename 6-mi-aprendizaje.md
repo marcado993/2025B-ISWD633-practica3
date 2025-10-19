@@ -45,19 +45,4 @@ docker volume prune -f
 docker rm -f server-drupal; docker volume rm vol-drupal-themes
 ```
 
-- Copia de seguridad de un volumen (ejemplo):
 
-```powershell
-# Crear un tar.gz del contenido del volumen en el host (usa una ruta válida en el host)
-docker run --rm -v vol-drupal-files:/data -v C:\Users\INTEL\Documents\backup:/backup alpine \
-  sh -c "cd /data && tar czf /backup/vol-drupal-files-$(date +%F).tar.gz ."
-```
-
-- Buenas prácticas resumidas:
-  - Prefiere volúmenes nombrados para persistencia en entornos Docker sobre bind mounts en Windows cuando sea posible (mejor rendimiento y permisos con WSL2).
-  - Documenta las rutas y credenciales en un archivo seguro (no en el repo público).
-  - Automatiza con docker-compose para reproducibilidad (redes, volúmenes, dependencias entre servicios).
-
-- Recursos rápidos (leer después):
-  - Docker volumes: https://docs.docker.com/storage/volumes/
-  - Docker Compose: https://docs.docker.com/compose/
