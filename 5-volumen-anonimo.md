@@ -24,3 +24,4 @@ Los dangling volumes son volúmenes en Docker que no están asociados a ningún 
 ```
 docker volume prune
 ```
+![alt text](image-17.png)
